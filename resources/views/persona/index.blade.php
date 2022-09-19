@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="container-fluid">
+    <div class="container col-sm-6">
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
@@ -71,23 +71,19 @@
                             <h5>Personas mayores de 25 años</h5>
                                 <thead class="thead">
                                     <tr>
-                                        
 										<th>Nombre</th>
 										<th>Edad</th>
-
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($personas as $persona)
-                                    @if($persona->edad>25)
-                                        <tr>
-											<td>{{ $persona->nombre }}</td>
-											<td>{{ $persona->edad }}</td>
-
-                                        </tr>
-                                    @endif
-                                        
+                                        @if ($persona->edad>25)
+                                            <tr>
+                                                <td>{{ $persona->nombre }}</td>
+                                                <td>{{ $persona->edad }}</td>
+                                            </tr>
+                                        @endif
                                     @endforeach
                                 </tbody>
                             </table>
@@ -95,31 +91,32 @@
 
                     <h5>Mostrar a Pedro y a Juan</h5>
 
-                    <div class="container">
+                    <div class="container col-sm-6">
                         <div class="row">
                             <div class="col-sm-6">
-                                <div class="card">
+                                <div class="card text-center border-primary mb-3 text-white bg-secondary">
                                 <div class="card-body">
-                                    @foreach($personas as $persona)
-                                    @if($persona->nombre=='pedro')
-                                    <h5 class="card-title">{{ $persona->nombre }}</h5>
-                                    <p class="card-text">{{ $persona->edad }}</p>
-                                    @endif
+                                    @foreach ($personas as $persona)
+
+                                        @if ($persona->nombre=='pedro')
+                                            <h5 class="fw-bold fst-italic">{{ $persona->nombre }}</h5>
+                                            <p class="card-text">{{ $persona->edad }}</p>
+                                        @endif
                                         
                                     @endforeach
                                 </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
-                                <div class="card">
+                            <div class="col-sm-6 mb-4">
+                                <div class="card text-center border-primary mb-3 text-white bg-primary">
                                 <div class="card-body">
-                                @foreach($personas as $persona)
-                                    @if($persona->nombre=='juan')
-                                    <h5 class="card-title">{{ $persona->nombre }}</h5>
-                                    <p class="card-text">{{ $persona->edad }}</p>
+                                @foreach ($personas as $persona)
+                                    @if ($persona->nombre=='juan')
+                                        <h5 class="fw-bold fst-italic">{{ $persona->nombre }}</h5>
+                                        <p class="card-text">{{ $persona->edad }}</p>
                                     @endif
                                         
-                                    @endforeach
+                                @endforeach
                                 </div>
                                 </div>
                             </div>

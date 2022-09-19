@@ -27,9 +27,10 @@
                         <tbody>
                             <tr>
                             <th>1</th>
-                            <td>{{$persona['name']}}</td>
-                            @foreach($persona['country'] as $persona['country'])
-                            <td>{{$persona['country']['country_id']}} {{$persona['country']['probability']}}</td>
+                            <td>{{ $persona['name'] }}</td>
+                            @foreach ($persona['country'] as $persona['country'])
+                            <td>{{ $persona['country']['country_id'] }} {{ $persona['country']['probability'] }}</td>
+                            
                             @endforeach
                             </tr>
                         </tbody>
@@ -40,10 +41,11 @@
                     <h5 class="text-center">Personas ordenadas por edad</h5>
                         <div class="row">
                             <div class="col-sm-12">
-                                <div class="card">
+                                <div class="card text-center">
                                 <div class="card-body">
-                                    @foreach($personas as $persona)
-                                    <h5 class="card-title">{{ $persona->nombre }} {{ $persona->edad }}</h5>
+                                    @foreach ($personas as $persona)
+                                    <p class="fw-bold">{{ $persona->nombre }} {{ $persona->edad }}</p>
+                                    <p> </p>
                                     @endforeach
                                 </div>
                             </div>
